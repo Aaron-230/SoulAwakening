@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://nnirfj0arbj6"]
+
+[ext_resource type="Script" uid="uid://b0bsg706fkbo6" path="res://Scripts/Others/UI.gd" id="1_636u5"]
+[ext_resource type="FontFile" uid="uid://cqt35ntcqnhvb" path="res://Assets/UI/Fonts/BoldPixels/boldpixels.ttf" id="2_akgwn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b83rk"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_636u5"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="UI" type="CanvasLayer" unique_id=475028726]
+process_mode = 3
+script = ExtResource("1_636u5")
+
+[node name="Panel" type="Panel" parent="." unique_id=2004378628]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="Panel" unique_id=981997489]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Container" unique_id=1851596690]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+
+[node name="Next" type="Button" parent="Panel/Container" unique_id=393114264]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_b83rk")
+text = "Move to next level!"
+
+[node name="Exit" type="Button" parent="Panel/Container" unique_id=791803432]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_b83rk")
+text = "Exit!"
+
+[node name="Pause Menu" type="Panel" parent="." unique_id=1098222611]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="Pause Menu" unique_id=785470283]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pause Menu/Container" unique_id=1634173360]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 64
+text = "You have paused the Game!"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Pause Menu/Container" unique_id=441125200]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_636u5")
+text = "Resume Game!"
+
+[node name="Exit" type="Button" parent="Pause Menu/Container" unique_id=1435292865]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_636u5")
+text = "Exit the Game!"
+
+[connection signal="pressed" from="Panel/Container/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Panel/Container/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Pause Menu/Container/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause Menu/Container/Exit" to="." method="_on_exit_pressed"]

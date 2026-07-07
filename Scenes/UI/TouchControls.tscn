@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bxvuo4gk1rbl7"]
+
+[ext_resource type="Texture2D" uid="uid://bfxuuv2i171ro" path="res://Assets/UI/TouchControls/gdb-keyboard-2.png" id="1_g4mdm"]
+[ext_resource type="Script" uid="uid://381opb8awapp" path="res://Scripts/Others/TouchControls.gd" id="1_srmlb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srmlb"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(336, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e81bh"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(336, 321, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kmlg"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(304, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2rtp"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(304, 321, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4mdm"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(319, 79, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1yld"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(320, 305, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qy5t"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(244, 64, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ascp2"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(244, 289, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_585fl"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57gr3"]
+atlas = ExtResource("1_g4mdm")
+region = Rect2(32, 241, 16, 16)
+
+[node name="TouchControls" type="CanvasLayer" unique_id=1919270182]
+script = ExtResource("1_srmlb")
+
+[node name="Movement" type="HBoxContainer" parent="." unique_id=1731629346]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Right" type="TouchScreenButton" parent="Movement" unique_id=1805539447]
+position = Vector2(-40, -40)
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_srmlb")
+texture_pressed = SubResource("AtlasTexture_e81bh")
+action = "Right"
+
+[node name="Left" type="TouchScreenButton" parent="Movement" unique_id=1453452887]
+position = Vector2(-130, -40)
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_5kmlg")
+texture_pressed = SubResource("AtlasTexture_u2rtp")
+
+[node name="Action" type="HBoxContainer" parent="." unique_id=2059451743]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="Action" unique_id=170835792]
+position = Vector2(0, -45)
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_g4mdm")
+texture_pressed = SubResource("AtlasTexture_r1yld")
+action = "Jump"
+
+[node name="Attack" type="TouchScreenButton" parent="Action" unique_id=1813332614]
+position = Vector2(100, -40)
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_3qy5t")
+texture_pressed = SubResource("AtlasTexture_ascp2")
+action = "Attack"
+
+[node name="Menu" type="TouchScreenButton" parent="." unique_id=752646086]
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_585fl")
+texture_pressed = SubResource("AtlasTexture_57gr3")
+action = "Pause"
