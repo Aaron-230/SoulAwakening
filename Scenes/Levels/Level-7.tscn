@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://di4toxk0owlh1"]
 
 [ext_resource type="Texture2D" uid="uid://bm6gvblpmnqci" path="res://Assets/Tilesets/Seasonal Tilesets/4 - Winter World/Terrain (16 x 16).png" id="1_fklea"]
+[ext_resource type="Texture2D" uid="uid://dm1rsg4xev5j2" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_iudcy"]
 [ext_resource type="Texture2D" uid="uid://bkvv8ypwk3131" path="res://Assets/Tilesets/Seasonal Tilesets/4 - Winter World/Winter_entities (16 x 16).png" id="2_upn0u"]
+[ext_resource type="Texture2D" uid="uid://b4ohrjiobu32a" path="res://Assets/Tilesets/Seasonal Tilesets/4 - Winter World/Background parts/2 - Smaller_mountains.png" id="2_y46cs"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="3_41gw3"]
+[ext_resource type="Texture2D" uid="uid://7bbbd400a15" path="res://Assets/Tilesets/Seasonal Tilesets/4 - Winter World/Background parts/1 - Snowy_foreground_area.png" id="3_ijp05"]
+[ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="4_bjj4q"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="4_pjmyt"]
 [ext_resource type="Script" uid="uid://b5v2u1o4sudpa" path="res://Scripts/Others/Finish.gd" id="4_xelbj"]
+[ext_resource type="PackedScene" uid="uid://bvunqyniqimy1" path="res://Scenes/Platforms/Winter.tscn" id="5_bjj4q"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="5_xelbj"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="6_bjj4q"]
 
@@ -123,11 +128,79 @@ sources/1 = SubResource("TileSetAtlasSource_ldp5f")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pjmyt"]
 
+[sub_resource type="Animation" id="Animation_bjj4q"]
+resource_name = "Move"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-78, -0.25, 0, 0.25, 0, -800, -0.48888892, -13, 0, 0),
+"times": PackedFloat32Array(1, 4)
+}
+
+[sub_resource type="Animation" id="Animation_0efh3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-78, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijdfl"]
+_data = {
+&"Move": SubResource("Animation_bjj4q"),
+&"RESET": SubResource("Animation_0efh3")
+}
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_bjj4q"]
 a = Vector2(1, -54)
 b = Vector2(1, 46)
 
 [node name="Level 7" type="Node2D" unique_id=288763966]
+
+[node name="Background" type="ParallaxBackground" parent="." unique_id=1660524353]
+
+[node name="Sky" type="ParallaxLayer" parent="Background" unique_id=909304824]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Sky" unique_id=1277052341]
+position = Vector2(0, -920)
+scale = Vector2(5, 5)
+texture = ExtResource("1_iudcy")
+centered = false
+
+[node name="Mountain" type="ParallaxLayer" parent="Background" unique_id=1934336384]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Mountain" unique_id=106818845]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("2_y46cs")
+centered = false
+
+[node name="Snow" type="ParallaxLayer" parent="Background" unique_id=877894094]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Snow" unique_id=402545144]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ijp05")
+centered = false
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1976650436]
 tile_set = SubResource("TileSet_41gw3")
@@ -155,6 +228,167 @@ rotation = 4.712389
 
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=750500996]
 shape = SubResource("WorldBoundaryShape2D_pjmyt")
+
+[node name="Coins" type="Node" parent="." unique_id=2128878598]
+
+[node name="Coin" parent="Coins" unique_id=843631524 instance=ExtResource("4_bjj4q")]
+position = Vector2(192, 64)
+
+[node name="Coin2" parent="Coins" unique_id=733135350 instance=ExtResource("4_bjj4q")]
+position = Vector2(280, -8)
+
+[node name="Coin3" parent="Coins" unique_id=1520372831 instance=ExtResource("4_bjj4q")]
+position = Vector2(384, -8)
+
+[node name="Coin4" parent="Coins" unique_id=632851871 instance=ExtResource("4_bjj4q")]
+position = Vector2(544, -8)
+
+[node name="Coin5" parent="Coins" unique_id=806219891 instance=ExtResource("4_bjj4q")]
+position = Vector2(472, -8)
+
+[node name="Coin6" parent="Coins" unique_id=42324928 instance=ExtResource("4_bjj4q")]
+position = Vector2(656, -328)
+
+[node name="Coin7" parent="Coins" unique_id=1822097118 instance=ExtResource("4_bjj4q")]
+position = Vector2(728, -328)
+
+[node name="Coin8" parent="Coins" unique_id=1199951323 instance=ExtResource("4_bjj4q")]
+position = Vector2(792, -328)
+
+[node name="Coin9" parent="Coins" unique_id=931279533 instance=ExtResource("4_bjj4q")]
+position = Vector2(856, -328)
+
+[node name="Coin10" parent="Coins" unique_id=1261098028 instance=ExtResource("4_bjj4q")]
+position = Vector2(912, -328)
+
+[node name="Coin11" parent="Coins" unique_id=2145370102 instance=ExtResource("4_bjj4q")]
+position = Vector2(968, -328)
+
+[node name="Coin12" parent="Coins" unique_id=1576512136 instance=ExtResource("4_bjj4q")]
+position = Vector2(1024, -8)
+
+[node name="Coin13" parent="Coins" unique_id=1025457240 instance=ExtResource("4_bjj4q")]
+position = Vector2(1088, -8)
+
+[node name="Coin14" parent="Coins" unique_id=1900541051 instance=ExtResource("4_bjj4q")]
+position = Vector2(1152, -8)
+
+[node name="Coin15" parent="Coins" unique_id=840460775 instance=ExtResource("4_bjj4q")]
+position = Vector2(1344, -72)
+
+[node name="Coin16" parent="Coins" unique_id=225668515 instance=ExtResource("4_bjj4q")]
+position = Vector2(1472, -72)
+
+[node name="Coin17" parent="Coins" unique_id=1450052272 instance=ExtResource("4_bjj4q")]
+position = Vector2(1560, -72)
+
+[node name="Coin18" parent="Coins" unique_id=2106903463 instance=ExtResource("4_bjj4q")]
+position = Vector2(1408, -72)
+
+[node name="Coin19" parent="Coins" unique_id=717310806 instance=ExtResource("4_bjj4q")]
+position = Vector2(1664, -808)
+
+[node name="Coin20" parent="Coins" unique_id=1081348300 instance=ExtResource("4_bjj4q")]
+position = Vector2(1792, -808)
+
+[node name="Coin21" parent="Coins" unique_id=433188261 instance=ExtResource("4_bjj4q")]
+position = Vector2(1920, -808)
+
+[node name="Coin22" parent="Coins" unique_id=543735881 instance=ExtResource("4_bjj4q")]
+position = Vector2(2048, -648)
+
+[node name="Coin23" parent="Coins" unique_id=515097564 instance=ExtResource("4_bjj4q")]
+position = Vector2(2136, -648)
+
+[node name="Coin24" parent="Coins" unique_id=2018040361 instance=ExtResource("4_bjj4q")]
+position = Vector2(2216, -648)
+
+[node name="Coin25" parent="Coins" unique_id=2095430255 instance=ExtResource("4_bjj4q")]
+position = Vector2(2304, -648)
+
+[node name="Coin26" parent="Coins" unique_id=1136182913 instance=ExtResource("4_bjj4q")]
+position = Vector2(2400, -648)
+
+[node name="Coin27" parent="Coins" unique_id=1685709768 instance=ExtResource("4_bjj4q")]
+position = Vector2(2480, -648)
+
+[node name="Coin28" parent="Coins" unique_id=1673984228 instance=ExtResource("4_bjj4q")]
+position = Vector2(2560, -648)
+
+[node name="Coin29" parent="Coins" unique_id=338475994 instance=ExtResource("4_bjj4q")]
+position = Vector2(2600, -488)
+
+[node name="Coin30" parent="Coins" unique_id=793782869 instance=ExtResource("4_bjj4q")]
+position = Vector2(2688, -488)
+
+[node name="Coin31" parent="Coins" unique_id=1547028864 instance=ExtResource("4_bjj4q")]
+position = Vector2(2784, -488)
+
+[node name="Coin32" parent="Coins" unique_id=367597687 instance=ExtResource("4_bjj4q")]
+position = Vector2(2880, -488)
+
+[node name="Coin33" parent="Coins" unique_id=1796043301 instance=ExtResource("4_bjj4q")]
+position = Vector2(2944, -328)
+
+[node name="Coin34" parent="Coins" unique_id=2081622361 instance=ExtResource("4_bjj4q")]
+position = Vector2(3008, -328)
+
+[node name="Coin35" parent="Coins" unique_id=673587393 instance=ExtResource("4_bjj4q")]
+position = Vector2(3072, -328)
+
+[node name="Coin36" parent="Coins" unique_id=508405377 instance=ExtResource("4_bjj4q")]
+position = Vector2(3200, -328)
+
+[node name="Coin37" parent="Coins" unique_id=802100412 instance=ExtResource("4_bjj4q")]
+position = Vector2(3136, -328)
+
+[node name="Coin38" parent="Coins" unique_id=1991552211 instance=ExtResource("4_bjj4q")]
+position = Vector2(3264, -168)
+
+[node name="Coin39" parent="Coins" unique_id=493457628 instance=ExtResource("4_bjj4q")]
+position = Vector2(3360, -168)
+
+[node name="Coin40" parent="Coins" unique_id=2103773793 instance=ExtResource("4_bjj4q")]
+position = Vector2(3392, -64)
+
+[node name="Platform" type="Node" parent="." unique_id=383962738]
+
+[node name="Platform" parent="Platform" unique_id=2081489824 instance=ExtResource("5_bjj4q")]
+position = Vector2(1596, -78)
+
+[node name="Animation" type="AnimationPlayer" parent="Platform/Platform" unique_id=1948895967]
+libraries/ = SubResource("AnimationLibrary_ijdfl")
+autoplay = &"Move"
+
+[node name="Platform2" parent="Platform" unique_id=1007034566 instance=ExtResource("5_bjj4q")]
+position = Vector2(619, -27)
+
+[node name="Platform3" parent="Platform" unique_id=1952300708 instance=ExtResource("5_bjj4q")]
+position = Vector2(535, -57)
+
+[node name="Platform4" parent="Platform" unique_id=203761637 instance=ExtResource("5_bjj4q")]
+position = Vector2(451, -84)
+
+[node name="Platform5" parent="Platform" unique_id=322303032 instance=ExtResource("5_bjj4q")]
+position = Vector2(363, -117)
+
+[node name="Platform6" parent="Platform" unique_id=986114900 instance=ExtResource("5_bjj4q")]
+position = Vector2(453, -163)
+
+[node name="Platform7" parent="Platform" unique_id=1502500049 instance=ExtResource("5_bjj4q")]
+position = Vector2(542, -192)
+
+[node name="Platform8" parent="Platform" unique_id=963794213 instance=ExtResource("5_bjj4q")]
+position = Vector2(612, -214)
+
+[node name="Platform9" parent="Platform" unique_id=1841012148 instance=ExtResource("5_bjj4q")]
+position = Vector2(612, -214)
+
+[node name="Platform10" parent="Platform" unique_id=668121466 instance=ExtResource("5_bjj4q")]
+position = Vector2(615, -287)
+
+[node name="Platform11" parent="Platform" unique_id=1297822213 instance=ExtResource("5_bjj4q")]
+position = Vector2(615, -287)
 
 [node name="Finish" type="Area2D" parent="." unique_id=886690971]
 position = Vector2(3450, -50)

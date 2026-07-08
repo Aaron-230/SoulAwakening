@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://bb2wkuwt2p2cu"]
 
 [ext_resource type="Texture2D" uid="uid://kf0ygdmrm4aw" path="res://Assets/Tilesets/Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="1_2r5c8"]
+[ext_resource type="Texture2D" uid="uid://cr6t066o46pgs" path="res://Assets/Tilesets/Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="1_k003g"]
+[ext_resource type="Texture2D" uid="uid://bg3qdqawn81mm" path="res://Assets/Tilesets/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="2_3dww3"]
 [ext_resource type="Texture2D" uid="uid://o35ysagjj2ii" path="res://Assets/Tilesets/Seasonal Tilesets/3 - Tropics/Tropics_entities (16 x 16).png" id="2_ukq6d"]
+[ext_resource type="Texture2D" uid="uid://bockpflbfhm3s" path="res://Assets/Tilesets/Seasonal Tilesets/3 - Tropics/Background parts/4 - Background_clouds.png" id="3_0ml5q"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="3_8rp2w"]
+[ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="4_06pgl"]
 [ext_resource type="Script" uid="uid://b5v2u1o4sudpa" path="res://Scripts/Others/Finish.gd" id="4_i2fap"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="4_jr64g"]
+[ext_resource type="Texture2D" uid="uid://dliwc7dsikerj" path="res://Assets/Tilesets/Seasonal Tilesets/3 - Tropics/Background parts/2 - Waters_version_2.png" id="4_rvmfa"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="5_i2fap"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="6_06pgl"]
 
@@ -130,6 +135,48 @@ b = Vector2(1, 46)
 
 [node name="Level 5" type="Node2D" unique_id=288763966]
 
+[node name="Background" type="ParallaxBackground" parent="." unique_id=1711611436]
+
+[node name="Sky" type="ParallaxLayer" parent="Background" unique_id=206811734]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Sky" unique_id=1990562976]
+position = Vector2(0, -360)
+scale = Vector2(2, 2)
+texture = ExtResource("1_k003g")
+centered = false
+
+[node name="Cloud" type="ParallaxLayer" parent="Background" unique_id=2146060075]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Cloud" unique_id=768477372]
+position = Vector2(0, -360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3dww3")
+centered = false
+
+[node name="Mountain" type="ParallaxLayer" parent="Background" unique_id=1499764269]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Mountain" unique_id=149240129]
+position = Vector2(0, -360)
+scale = Vector2(2, 2)
+texture = ExtResource("3_0ml5q")
+centered = false
+
+[node name="Islands" type="ParallaxLayer" parent="Background" unique_id=1037515386]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Islands" unique_id=70865574]
+position = Vector2(0, -360)
+scale = Vector2(2, 2)
+texture = ExtResource("4_rvmfa")
+centered = false
+
 [node name="TileMap" type="TileMap" parent="." unique_id=1976650436]
 tile_set = SubResource("TileSet_8rp2w")
 format = 2
@@ -156,6 +203,68 @@ rotation = 4.712389
 
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=1896273391]
 shape = SubResource("WorldBoundaryShape2D_jr64g")
+
+[node name="Coins" type="Node" parent="." unique_id=561421913]
+
+[node name="Coin" parent="Coins" unique_id=843631524 instance=ExtResource("4_06pgl")]
+position = Vector2(176, 24)
+
+[node name="Coin2" parent="Coins" unique_id=603791864 instance=ExtResource("4_06pgl")]
+position = Vector2(288, -72)
+
+[node name="Coin3" parent="Coins" unique_id=759906540 instance=ExtResource("4_06pgl")]
+position = Vector2(224, -16)
+
+[node name="Coin4" parent="Coins" unique_id=949466282 instance=ExtResource("4_06pgl")]
+position = Vector2(448, -72)
+
+[node name="Coin5" parent="Coins" unique_id=2003572599 instance=ExtResource("4_06pgl")]
+position = Vector2(576, -136)
+
+[node name="Coin6" parent="Coins" unique_id=453807371 instance=ExtResource("4_06pgl")]
+position = Vector2(704, -136)
+
+[node name="Coin7" parent="Coins" unique_id=1030461040 instance=ExtResource("4_06pgl")]
+position = Vector2(832, -8)
+
+[node name="Coin8" parent="Coins" unique_id=1564037009 instance=ExtResource("4_06pgl")]
+position = Vector2(960, -8)
+
+[node name="Coin9" parent="Coins" unique_id=29907013 instance=ExtResource("4_06pgl")]
+position = Vector2(1088, -8)
+
+[node name="Coin10" parent="Coins" unique_id=905272332 instance=ExtResource("4_06pgl")]
+position = Vector2(1216, -8)
+
+[node name="Coin11" parent="Coins" unique_id=512331201 instance=ExtResource("4_06pgl")]
+position = Vector2(1328, -72)
+
+[node name="Coin12" parent="Coins" unique_id=1320857506 instance=ExtResource("4_06pgl")]
+position = Vector2(1408, -72)
+
+[node name="Coin13" parent="Coins" unique_id=71395576 instance=ExtResource("4_06pgl")]
+position = Vector2(1536, -88)
+
+[node name="Coin14" parent="Coins" unique_id=1997107164 instance=ExtResource("4_06pgl")]
+position = Vector2(1472, -88)
+
+[node name="Coin15" parent="Coins" unique_id=508984979 instance=ExtResource("4_06pgl")]
+position = Vector2(1664, -8)
+
+[node name="Coin16" parent="Coins" unique_id=1497394091 instance=ExtResource("4_06pgl")]
+position = Vector2(1792, -24)
+
+[node name="Coin17" parent="Coins" unique_id=1374105847 instance=ExtResource("4_06pgl")]
+position = Vector2(1880, -24)
+
+[node name="Coin18" parent="Coins" unique_id=1767442077 instance=ExtResource("4_06pgl")]
+position = Vector2(1952, -72)
+
+[node name="Coin19" parent="Coins" unique_id=1966446328 instance=ExtResource("4_06pgl")]
+position = Vector2(2096, -72)
+
+[node name="Coin20" parent="Coins" unique_id=1788612967 instance=ExtResource("4_06pgl")]
+position = Vector2(2232, -72)
 
 [node name="Finish" type="Area2D" parent="." unique_id=1808086478]
 position = Vector2(2350, -140)

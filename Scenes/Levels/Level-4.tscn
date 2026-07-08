@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://ce66n5vh1rqxq"]
 
 [ext_resource type="Texture2D" uid="uid://cvrttd61h2wam" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_nxq7m"]
+[ext_resource type="Texture2D" uid="uid://dm1rsg4xev5j2" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="1_vuq4j"]
+[ext_resource type="Texture2D" uid="uid://cd4abw6dhdtdb" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="2_oij1i"]
 [ext_resource type="Texture2D" uid="uid://b36j845bfwh4u" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_qsed2"]
 [ext_resource type="Texture2D" uid="uid://c176vxvxykug2" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="3_dis2o"]
+[ext_resource type="Texture2D" uid="uid://dbioptmkr6eaw" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="3_vuq4j"]
+[ext_resource type="Texture2D" uid="uid://bbkdu6b7yy38s" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="4_oij1i"]
+[ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="5_8gota"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="5_l5k2p"]
 [ext_resource type="Script" uid="uid://b5v2u1o4sudpa" path="res://Scripts/Others/Finish.gd" id="5_o7d5v"]
+[ext_resource type="Texture2D" uid="uid://dvf7u6mthl7xj" path="res://Assets/Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="5_tkwnd"]
+[ext_resource type="PackedScene" uid="uid://c3h8kffu0ynpw" path="res://Scenes/Platforms/Grasslands.tscn" id="6_8gota"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="6_o7d5v"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="7_8gota"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="8_hcaby"]
@@ -164,11 +171,99 @@ sources/3 = SubResource("TileSetAtlasSource_l5k2p")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l5k2p"]
 
+[sub_resource type="Animation" id="Animation_hcaby"]
+resource_name = "Move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(35, -0.25, 0, 0.25, 0, -200, -0.33888888, 5.8333335, 0, 0),
+"times": PackedFloat32Array(1, 3)
+}
+
+[sub_resource type="Animation" id="Animation_4l3db"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(35, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuq4j"]
+_data = {
+&"Move": SubResource("Animation_hcaby"),
+&"RESET": SubResource("Animation_4l3db")
+}
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8gota"]
 a = Vector2(1, -54)
 b = Vector2(1, 46)
 
 [node name="Level 4" type="Node2D" unique_id=288763966]
+
+[node name="Background" type="ParallaxBackground" parent="." unique_id=1661792064]
+
+[node name="Sky" type="ParallaxLayer" parent="Background" unique_id=366673367]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Sky" unique_id=650252518]
+position = Vector2(0, -500)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vuq4j")
+centered = false
+
+[node name="Cloud" type="ParallaxLayer" parent="Background" unique_id=106572922]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Cloud" unique_id=208568435]
+position = Vector2(0, -500)
+scale = Vector2(3, 3)
+texture = ExtResource("2_oij1i")
+centered = false
+
+[node name="Mountain" type="ParallaxLayer" parent="Background" unique_id=1078931890]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Mountain" unique_id=1570986829]
+position = Vector2(0, -500)
+scale = Vector2(3, 3)
+texture = ExtResource("3_vuq4j")
+centered = false
+
+[node name="Hills" type="ParallaxLayer" parent="Background" unique_id=1851300700]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Hills" unique_id=1204586171]
+position = Vector2(0, -500)
+scale = Vector2(3, 3)
+texture = ExtResource("4_oij1i")
+centered = false
+
+[node name="Ground" type="ParallaxLayer" parent="Background" unique_id=609999680]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Ground" unique_id=1948856895]
+position = Vector2(0, -500)
+scale = Vector2(3, 3)
+texture = ExtResource("5_tkwnd")
+centered = false
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1976650436]
 tile_set = SubResource("TileSet_o7d5v")
@@ -196,6 +291,92 @@ rotation = 4.712389
 
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=1363968681]
 shape = SubResource("WorldBoundaryShape2D_l5k2p")
+
+[node name="Coins" type="Node" parent="." unique_id=1979698750]
+
+[node name="Coin" parent="Coins" unique_id=843631524 instance=ExtResource("5_8gota")]
+position = Vector2(128, 40)
+
+[node name="Coin2" parent="Coins" unique_id=558052074 instance=ExtResource("5_8gota")]
+position = Vector2(208, -8)
+
+[node name="Coin3" parent="Coins" unique_id=1509470372 instance=ExtResource("5_8gota")]
+position = Vector2(384, -8)
+
+[node name="Coin4" parent="Coins" unique_id=801620816 instance=ExtResource("5_8gota")]
+position = Vector2(512, 40)
+
+[node name="Coin5" parent="Coins" unique_id=2061724395 instance=ExtResource("5_8gota")]
+position = Vector2(576, 40)
+
+[node name="Coin6" parent="Coins" unique_id=895302704 instance=ExtResource("5_8gota")]
+position = Vector2(656, 40)
+
+[node name="Coin7" parent="Coins" unique_id=365595351 instance=ExtResource("5_8gota")]
+position = Vector2(832, -200)
+
+[node name="Coin8" parent="Coins" unique_id=611800654 instance=ExtResource("5_8gota")]
+position = Vector2(912, -200)
+
+[node name="Coin9" parent="Coins" unique_id=1951981129 instance=ExtResource("5_8gota")]
+position = Vector2(1120, -136)
+
+[node name="Coin10" parent="Coins" unique_id=750151514 instance=ExtResource("5_8gota")]
+position = Vector2(1184, -8)
+
+[node name="Coin11" parent="Coins" unique_id=1596953885 instance=ExtResource("5_8gota")]
+position = Vector2(1296, -8)
+
+[node name="Coin12" parent="Coins" unique_id=312943978 instance=ExtResource("5_8gota")]
+position = Vector2(1408, -8)
+
+[node name="Coin13" parent="Coins" unique_id=648831497 instance=ExtResource("5_8gota")]
+position = Vector2(1520, -8)
+
+[node name="Coin14" parent="Coins" unique_id=1295499635 instance=ExtResource("5_8gota")]
+position = Vector2(1664, -168)
+
+[node name="Coin15" parent="Coins" unique_id=826399843 instance=ExtResource("5_8gota")]
+position = Vector2(1792, -168)
+
+[node name="Coin16" parent="Coins" unique_id=829099331 instance=ExtResource("5_8gota")]
+position = Vector2(1920, -168)
+
+[node name="Coin17" parent="Coins" unique_id=587608712 instance=ExtResource("5_8gota")]
+position = Vector2(1984, -8)
+
+[node name="Coin18" parent="Coins" unique_id=459661414 instance=ExtResource("5_8gota")]
+position = Vector2(2064, -8)
+
+[node name="Coin19" parent="Coins" unique_id=173944197 instance=ExtResource("5_8gota")]
+position = Vector2(2176, -8)
+
+[node name="Coin20" parent="Coins" unique_id=1969485340 instance=ExtResource("5_8gota")]
+position = Vector2(2240, -8)
+
+[node name="Platform" type="Node" parent="." unique_id=381416175]
+
+[node name="Platform" parent="Platform" unique_id=2081489824 instance=ExtResource("6_8gota")]
+position = Vector2(746, 35)
+
+[node name="Animation" type="AnimationPlayer" parent="Platform/Platform" unique_id=314893292]
+libraries/ = SubResource("AnimationLibrary_vuq4j")
+autoplay = &"Move"
+
+[node name="Platform2" parent="Platform" unique_id=27343089 instance=ExtResource("6_8gota")]
+position = Vector2(1579, -12)
+
+[node name="Platform3" parent="Platform" unique_id=621099929 instance=ExtResource("6_8gota")]
+position = Vector2(1514, -47)
+
+[node name="Platform4" parent="Platform" unique_id=2066958568 instance=ExtResource("6_8gota")]
+position = Vector2(1579, -82)
+
+[node name="Platform5" parent="Platform" unique_id=590060288 instance=ExtResource("6_8gota")]
+position = Vector2(1512, -112)
+
+[node name="Platform6" parent="Platform" unique_id=819762858 instance=ExtResource("6_8gota")]
+position = Vector2(1580, -152)
 
 [node name="Finish" type="Area2D" parent="." unique_id=1499014626]
 position = Vector2(2300, -50)

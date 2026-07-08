@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://cql8tpio1dekx"]
 
+[ext_resource type="Texture2D" uid="uid://c803tei68pbfn" path="res://Assets/Tilesets/GrassLand/Background/GrassLand_Background_1.png" id="1_83jt6"]
 [ext_resource type="Texture2D" uid="uid://beexk71kokmej" path="res://Assets/Tilesets/GrassLand/Terrain/Grassland_Terrain_47Tiles.png" id="1_qt0qh"]
+[ext_resource type="Texture2D" uid="uid://fxql2mocgsq3" path="res://Assets/Tilesets/GrassLand/Background/GrassLand_Background_2.png" id="2_0rtsb"]
 [ext_resource type="Texture2D" uid="uid://b7xuo0xdxlj2j" path="res://Assets/Tilesets/GrassLand/Terrain/Grassland_Terrain_BgdTiles.png" id="2_aowoj"]
 [ext_resource type="Texture2D" uid="uid://cp6631mkpo0ge" path="res://Assets/Tilesets/GrassLand/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_io0hp"]
+[ext_resource type="Texture2D" uid="uid://bres6lmjk61cd" path="res://Assets/Tilesets/GrassLand/Background/GrassLand_Background_4.png" id="3_yqxct"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="5_io0hp"]
+[ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="5_vs31q"]
 [ext_resource type="Script" uid="uid://b5v2u1o4sudpa" path="res://Scripts/Others/Finish.gd" id="8_wgrye"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="9_8yefm"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="10_0rtsb"]
@@ -196,6 +200,38 @@ b = Vector2(1, 46)
 
 [node name="Level 2" type="Node2D" unique_id=2111265755]
 
+[node name="Background" type="ParallaxBackground" parent="." unique_id=1461717878]
+
+[node name="Sky" type="ParallaxLayer" parent="Background" unique_id=1771734506]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1840, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Sky" unique_id=2008583482]
+position = Vector2(0, -800)
+scale = Vector2(5, 5)
+texture = ExtResource("1_83jt6")
+centered = false
+
+[node name="Hills" type="ParallaxLayer" parent="Background" unique_id=470944152]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(416, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Hills" unique_id=1375019955]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0rtsb")
+centered = false
+
+[node name="Trees" type="ParallaxLayer" parent="Background" unique_id=1442866887]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(416, 0)
+
+[node name="Texture" type="Sprite2D" parent="Background/Trees" unique_id=177464694]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("3_yqxct")
+centered = false
+
 [node name="TileMap" type="TileMap" parent="." unique_id=1614322057]
 tile_set = SubResource("TileSet_vs31q")
 format = 2
@@ -222,6 +258,44 @@ rotation = 4.712389
 
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=2064932571]
 shape = SubResource("WorldBoundaryShape2D_wgrye")
+
+[node name="Coins" type="Node" parent="." unique_id=1268369112]
+
+[node name="Coin" parent="Coins" unique_id=843631524 instance=ExtResource("5_vs31q")]
+position = Vector2(574, 32)
+
+[node name="Coin2" parent="Coins" unique_id=1638594678 instance=ExtResource("5_vs31q")]
+position = Vector2(813, -109)
+
+[node name="Coin3" parent="Coins" unique_id=929024222 instance=ExtResource("5_vs31q")]
+position = Vector2(1125, -109)
+
+[node name="Coin4" parent="Coins" unique_id=1711927449 instance=ExtResource("5_vs31q")]
+position = Vector2(1419, -109)
+
+[node name="Coin5" parent="Coins" unique_id=1942572309 instance=ExtResource("5_vs31q")]
+position = Vector2(1717, 83)
+
+[node name="Coin6" parent="Coins" unique_id=1460815177 instance=ExtResource("5_vs31q")]
+position = Vector2(2170, 86)
+
+[node name="Coin7" parent="Coins" unique_id=1317503203 instance=ExtResource("5_vs31q")]
+position = Vector2(2410, -75)
+
+[node name="Coin8" parent="Coins" unique_id=134771832 instance=ExtResource("5_vs31q")]
+position = Vector2(2855, -332)
+
+[node name="Coin9" parent="Coins" unique_id=99098903 instance=ExtResource("5_vs31q")]
+position = Vector2(3185, -332)
+
+[node name="Coin10" parent="Coins" unique_id=894280244 instance=ExtResource("5_vs31q")]
+position = Vector2(3670, -586)
+
+[node name="Coin11" parent="Coins" unique_id=2089349523 instance=ExtResource("5_vs31q")]
+position = Vector2(3971, -588)
+
+[node name="Coin12" parent="Coins" unique_id=1764708791 instance=ExtResource("5_vs31q")]
+position = Vector2(4060, -11)
 
 [node name="Finish" type="Area2D" parent="." unique_id=761096826]
 position = Vector2(4500, -45)

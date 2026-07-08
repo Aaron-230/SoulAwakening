@@ -12,6 +12,7 @@ func _physics_process(delta: float):
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		Sprite.play("Jump")
 	
 	if Input.is_action_pressed("Run") and is_on_floor():
 		Speed = Run
