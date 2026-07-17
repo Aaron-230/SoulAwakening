@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bres6lmjk61cd" path="res://Assets/Tilesets/GrassLand/Background/GrassLand_Background_4.png" id="3_yqxct"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="5_io0hp"]
 [ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="5_vs31q"]
+[ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="8_f6d4t"]
 [ext_resource type="Script" uid="uid://b5v2u1o4sudpa" path="res://Scripts/Others/Finish.gd" id="8_wgrye"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="9_8yefm"]
+[ext_resource type="PackedScene" uid="uid://ctgdfkyhllwho" path="res://Scenes/Enemy/Bomb.tscn" id="9_yqxct"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="10_0rtsb"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="11_yqxct"]
 
@@ -243,6 +245,44 @@ layer_0/tile_data = PackedInt32Array(262132, 0, 0, 327668, 0, 1, 393204, 0, 1, 4
 [node name="Camera" type="Camera2D" parent="Spirit" unique_id=116353513]
 zoom = Vector2(5, 5)
 
+[node name="Labels" type="Node" parent="." unique_id=1864697820]
+
+[node name="Label" type="Label" parent="Labels" unique_id=819706920]
+offset_left = 187.0
+offset_top = -28.0
+offset_right = 282.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("8_f6d4t")
+theme_override_font_sizes/font_size = 24
+text = "There are bombs over here!"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=2045014280]
+offset_left = 788.0
+offset_top = -155.0
+offset_right = 1058.0
+offset_bottom = -132.0
+theme_override_fonts/font = ExtResource("8_f6d4t")
+theme_override_font_sizes/font_size = 24
+text = "Kill them using your sword!"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=1229909414]
+offset_left = 1826.0
+offset_top = 48.0
+offset_right = 2109.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("8_f6d4t")
+theme_override_font_sizes/font_size = 24
+text = "Just climb the hills and mountains!"
+
+[node name="Label4" type="Label" parent="Labels" unique_id=308404179]
+offset_left = 3651.0
+offset_top = -634.0
+offset_right = 4018.0
+offset_bottom = -611.0
+theme_override_fonts/font = ExtResource("8_f6d4t")
+theme_override_font_sizes/font_size = 24
+text = "Just fall like Kratos!"
+
 [node name="Border" type="Node" parent="." unique_id=1868772753]
 
 [node name="Protection" type="StaticBody2D" parent="Border" unique_id=652894232]
@@ -296,6 +336,23 @@ position = Vector2(3971, -588)
 
 [node name="Coin12" parent="Coins" unique_id=1764708791 instance=ExtResource("5_vs31q")]
 position = Vector2(4060, -11)
+
+[node name="Enemies" type="Node" parent="." unique_id=897432342]
+
+[node name="Bomb" parent="Enemies" unique_id=1642061844 instance=ExtResource("9_yqxct")]
+position = Vector2(950, -110)
+
+[node name="Bomb2" parent="Enemies" unique_id=2057496360 instance=ExtResource("9_yqxct")]
+position = Vector2(2499, -88)
+
+[node name="Bomb3" parent="Enemies" unique_id=1880449139 instance=ExtResource("9_yqxct")]
+position = Vector2(2972, -341)
+
+[node name="Bomb4" parent="Enemies" unique_id=1838258016 instance=ExtResource("9_yqxct")]
+position = Vector2(3813, -604)
+
+[node name="Bomb5" parent="Enemies" unique_id=349058024 instance=ExtResource("9_yqxct")]
+position = Vector2(4157, -28)
 
 [node name="Finish" type="Area2D" parent="." unique_id=761096826]
 position = Vector2(4500, -45)

@@ -1,37 +1,37 @@
 [gd_scene format=3 uid="uid://kdujcybapckd"]
 
 [ext_resource type="Script" uid="uid://cv4kjqctehc6h" path="res://Scripts/Characters/Enemies/Slime.gd" id="1_mili8"]
-[ext_resource type="Texture2D" uid="uid://veckln2ogq5h" path="res://Assets/Sprites/Others/slime_purple.png" id="1_psgoc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j37dr"]
-atlas = ExtResource("1_psgoc")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mgx5w"]
-atlas = ExtResource("1_psgoc")
-region = Rect2(24, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yv3vn"]
-atlas = ExtResource("1_psgoc")
-region = Rect2(48, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8neu4"]
-atlas = ExtResource("1_psgoc")
-region = Rect2(72, 24, 24, 24)
+[ext_resource type="Texture2D" uid="uid://bw0ekvj8wlrd8" path="res://Assets/Sprites/Others/slime_green.png" id="1_psgoc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mili8"]
 atlas = ExtResource("1_psgoc")
-region = Rect2(0, 48, 24, 24)
+region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n2i0"]
 atlas = ExtResource("1_psgoc")
-region = Rect2(24, 48, 24, 24)
+region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85dqh"]
 atlas = ExtResource("1_psgoc")
-region = Rect2(48, 48, 24, 24)
+region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddavd"]
+atlas = ExtResource("1_psgoc")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j37dr"]
+atlas = ExtResource("1_psgoc")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgx5w"]
+atlas = ExtResource("1_psgoc")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv3vn"]
+atlas = ExtResource("1_psgoc")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8neu4"]
 atlas = ExtResource("1_psgoc")
 region = Rect2(72, 48, 24, 24)
 
@@ -51,33 +51,8 @@ region = Rect2(48, 0, 24, 24)
 atlas = ExtResource("1_psgoc")
 region = Rect2(72, 0, 24, 24)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_r1lja"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nde42"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j37dr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mgx5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yv3vn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8neu4")
-}],
-"loop": true,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j37dr")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mili8")
@@ -90,6 +65,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddavd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j37dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgx5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv3vn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8neu4")
 }],
 "loop": true,
 "name": &"Kill",
@@ -109,37 +101,57 @@ animations = [{
 "texture": SubResource("AtlasTexture_f0jva")
 }],
 "loop": true,
-"name": &"Wake",
+"name": &"Waking",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_psgoc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuv57"]
 size = Vector2(14, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mili8"]
-size = Vector2(104.75, 95.25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mili8"]
+radius = 79.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n2i0"]
-size = Vector2(16, 13)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0n2i0"]
+radius = 15.033297
 
-[node name="Slime" type="CharacterBody2D" unique_id=1663058420]
+[node name="Slime" type="CharacterBody2D" unique_id=1642061844 groups=["Enemy"]]
 script = ExtResource("1_mili8")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1771930977]
-sprite_frames = SubResource("SpriteFrames_r1lja")
-animation = &"Idle"
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=144488120]
+sprite_frames = SubResource("SpriteFrames_nde42")
+animation = &"Kill"
+frame = 3
+frame_progress = 0.44891843
 
-[node name="Collision Shape" type="CollisionShape2D" parent="." unique_id=1385204194]
+[node name="Collision Shape" type="CollisionShape2D" parent="." unique_id=1154313609]
 position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_psgoc")
+shape = SubResource("RectangleShape2D_fuv57")
 
-[node name="Detection" type="Area2D" parent="." unique_id=156900051]
+[node name="Detection" type="Area2D" parent="." unique_id=373255566]
 
-[node name="Area" type="CollisionShape2D" parent="Detection" unique_id=559361284]
-shape = SubResource("RectangleShape2D_mili8")
+[node name="Area" type="CollisionShape2D" parent="Detection" unique_id=458339235]
+shape = SubResource("CircleShape2D_mili8")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=2024487547]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1020912147]
 
-[node name="Area" type="CollisionShape2D" parent="Hitbox" unique_id=1852424822]
-position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_0n2i0")
+[node name="Area" type="CollisionShape2D" parent="Hitbox" unique_id=1261802220]
+shape = SubResource("CircleShape2D_0n2i0")
+
+[node name="RayCasts" type="Node2D" parent="." unique_id=2137846563]
+
+[node name="FallDetectionRight" type="RayCast2D" parent="RayCasts" unique_id=928841928]
+position = Vector2(20, 0)
+
+[node name="FallDetectionLeft" type="RayCast2D" parent="RayCasts" unique_id=592081322]
+position = Vector2(-20, 0)
+
+[node name="WallDetectionRight" type="RayCast2D" parent="RayCasts" unique_id=1057312234]
+target_position = Vector2(30, 0)
+
+[node name="WallDetectionLeft" type="RayCast2D" parent="RayCasts" unique_id=611131882]
+target_position = Vector2(-30, 0)
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

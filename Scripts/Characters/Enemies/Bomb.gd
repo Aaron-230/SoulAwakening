@@ -2,9 +2,8 @@ extends CharacterBody2D
 
 @export var Speed: float = 200.0
 @export var JumpVelocity: float = 100.0
-@export var HP: int = 150
-@export var Damage: int = 50
-@export var PointsAwarded: int = 1000
+@export var Damage: int = 100
+@export var PointsAwarded: int = 5000
 @export var CoolTime: float = 1.5
 
 @onready var Sprite: AnimatedSprite2D = $Sprite
@@ -15,19 +14,16 @@ extends CharacterBody2D
 @onready var WallDetectionLeft: RayCast2D = $RayCasts/WallDetectionLeft
 
 var Attack = false
-var currentHP = HP
 var Target: Node2D = null
 
-func _ready():
-	Sprite.play("Waking")
-	await Sprite.animation_finished
-
 func _physics_process(delta: float):
+	Sprite.play("Idle")
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	if Target != null:
-		Sprite.play("Idle")
+		Sprite.play("Walk")
 		var Direction = (Target.global_position - global_position).normalized()
 		
 		if Attack:
@@ -50,16 +46,14 @@ func _physics_process(delta: float):
 
 func performAttack():
 	velocity = Vector2.ZERO
-	Sprite.play("Idle")
+	Sprite.play("Death")
 	Game.takeDamage(Damage)
+	queue_free()
 
 func takeDamage(amount):
-	Sprite.play("Kill")
-	currentHP -= amount
-	
-	if currentHP <= 0:
-		Game.addPoints(PointsAwarded)
-		queue_free()
+	Sprite.play("Death")
+	Game.addPoints(PointsAwarded)
+	queue_free()
 
 func _on_detection_body_entered(body: Node2D):
 	if body.name == "Spirit":

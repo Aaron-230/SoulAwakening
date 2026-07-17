@@ -396,3 +396,6 @@ stream = ExtResource("4_ujkwh")
 
 [node name="PowerUp" type="AudioStreamPlayer" parent="Sounds" unique_id=1428228240]
 stream = ExtResource("5_hdgn3")
+
+[connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="Attack" to="." method="_on_attack_body_exited"]

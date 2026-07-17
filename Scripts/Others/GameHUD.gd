@@ -7,6 +7,9 @@ func _ready():
 
 func _changeHealth(NewHealth):
 	$Health/HealthBar.value = float(NewHealth)
+	if NewHealth <= 0:
+		Game.RestartGame()
+		get_tree().reload_current_scene()
 
 func _changeCoins(CoinsAdded):
 	$Coin/Counter.text = str(CoinsAdded)
