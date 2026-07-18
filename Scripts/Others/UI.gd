@@ -15,6 +15,7 @@ func _input(event: InputEvent):
 
 func _on_next_pressed():
 	get_tree().paused = false
+	Game.ResetHealth()
 	get_tree().change_scene_to_file(nextScene)
 
 func _on_exit_pressed():
@@ -23,3 +24,8 @@ func _on_exit_pressed():
 func _on_resume_pressed():
 	$"Pause Menu".hide()
 	get_tree().paused = false
+
+func _on_restart_pressed() -> void:
+	$"Pause Menu".hide()
+	get_tree().paused = false
+	get_tree().reload_current_scene()

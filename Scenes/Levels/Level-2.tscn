@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ctgdfkyhllwho" path="res://Scenes/Enemy/Bomb.tscn" id="9_yqxct"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="10_0rtsb"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="11_yqxct"]
+[ext_resource type="AudioStream" uid="uid://dtt66omxyrbos" path="res://Assets/Music/2.mp3" id="15_81abi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdrgj"]
 texture = ExtResource("1_qt0qh")
@@ -369,5 +370,10 @@ Text = "Level 2: The Outstanding Outside"
 [node name="UI" parent="." unique_id=475028726 instance=ExtResource("11_yqxct")]
 nextScene = "uid://bjia0ps3dn1ix"
 LevelName = "The Outstanding Outside"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=222554288]
+stream = ExtResource("15_81abi")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Finish" to="Finish" method="_on_body_entered"]

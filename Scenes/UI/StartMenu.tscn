@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://btkonuak5y4pu"]
+
+[ext_resource type="Script" uid="uid://bigj0gd3askv1" path="res://Scripts/Others/StartMenu.gd" id="1_jeo11"]
+[ext_resource type="VideoStream" uid="uid://miojj5utf6tb" path="res://Assets/Videos/Background.ogv" id="1_omsb3"]
+[ext_resource type="Texture2D" uid="uid://buycuaom8xin4" path="res://Assets/Logo.png" id="1_r73nm"]
+[ext_resource type="FontFile" uid="uid://cqt35ntcqnhvb" path="res://Assets/UI/Fonts/BoldPixels/boldpixels.ttf" id="2_7sc2f"]
+[ext_resource type="AudioStream" uid="uid://dspl53edfba5b" path="res://Assets/Music/Menu.mp3" id="4_k44vq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omsb3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Start Menu" type="CanvasLayer" unique_id=894005827]
+script = ExtResource("1_jeo11")
+nextScene = "uid://d3th3p08b367t"
+
+[node name="Background" type="VideoStreamPlayer" parent="." unique_id=767028208]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_omsb3")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1555381287]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=540143758]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Container" unique_id=1621078781]
+layout_mode = 2
+texture = ExtResource("1_r73nm")
+
+[node name="Start" type="Button" parent="Container" unique_id=1106555595]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sc2f")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_omsb3")
+text = "Start Game!"
+
+[node name="Exit" type="Button" parent="Container" unique_id=1688250758]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7sc2f")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_omsb3")
+text = "Exit Game!"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1738406138]
+stream = ExtResource("4_k44vq")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Container/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]

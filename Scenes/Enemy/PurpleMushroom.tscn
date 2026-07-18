@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://bm6o0m1oldx7d"]
+
+[ext_resource type="Script" uid="uid://b0qp7gteq1gh5" path="res://Scripts/Characters/Enemies/Mushroom.gd" id="1_bjk5j"]
+[ext_resource type="Texture2D" uid="uid://bk1a13grunb64" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Attack/Attack_R_1.png" id="2_spouk"]
+[ext_resource type="Texture2D" uid="uid://dqvmoidupxias" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Attack/Attack_R_2.png" id="3_8j704"]
+[ext_resource type="Texture2D" uid="uid://b00wl7okck2ka" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Attack/Attack_R_3.png" id="4_5xqmw"]
+[ext_resource type="Texture2D" uid="uid://byyb3isgna5xr" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Attack/Attack_R_4.png" id="5_qofmr"]
+[ext_resource type="Texture2D" uid="uid://cjmry6wt1pgeu" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Squash/Squash_R_1.png" id="6_aejgo"]
+[ext_resource type="Texture2D" uid="uid://dh284yddwxilm" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Squash/Squash_R_2.png" id="7_8rnul"]
+[ext_resource type="Texture2D" uid="uid://ds7000kvspbqi" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Squash/Squash_R_3.png" id="8_w8dcr"]
+[ext_resource type="Texture2D" uid="uid://u61lv1euh2lm" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Squash/Squash_R_4.png" id="9_gqh5h"]
+[ext_resource type="Texture2D" uid="uid://bavy7qouh04x" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Idle/Idle_R_1.png" id="10_58c4h"]
+[ext_resource type="Texture2D" uid="uid://d3xl8anbn1rfu" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Idle/Idle_R_2.png" id="11_vtas6"]
+[ext_resource type="Texture2D" uid="uid://dy2gcg7s1nohs" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Idle/Idle_R_3.png" id="12_quhsd"]
+[ext_resource type="Texture2D" uid="uid://bbgeebvbx33fl" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Idle/Idle_R_4.png" id="13_gxtta"]
+[ext_resource type="Texture2D" uid="uid://dopaxfaci3w8c" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Jump/Jump_R_1.png" id="14_0mjwe"]
+[ext_resource type="Texture2D" uid="uid://bym1ljn2iagu7" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Jump/Jump_R_2.png" id="15_cgjov"]
+[ext_resource type="Texture2D" uid="uid://do72yafc6sx48" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Jump/Jump_R_3.png" id="16_6a1ni"]
+[ext_resource type="Texture2D" uid="uid://btmock77vu821" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Jump/Jump_R_4.png" id="17_i5eap"]
+[ext_resource type="Texture2D" uid="uid://dfx3xrjbhq5hk" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Walk/Walk_R_1.png" id="18_oxv7p"]
+[ext_resource type="Texture2D" uid="uid://oh7gck047ms7" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Walk/Walk_R_2.png" id="19_hcfri"]
+[ext_resource type="Texture2D" uid="uid://ifxxg3eduikp" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Walk/Walk_R_3.png" id="20_bqt06"]
+[ext_resource type="Texture2D" uid="uid://cgpxgmbwpsuu" path="res://Assets/Sprites/Enemies/Mushroom/Mushroom_3/Walk/Walk_R_4.png" id="21_h7u45"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nde42"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_spouk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8j704")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5xqmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qofmr")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_aejgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8rnul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w8dcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gqh5h")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_58c4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vtas6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_quhsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gxtta")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_0mjwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cgjov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6a1ni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i5eap")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_oxv7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hcfri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bqt06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_h7u45")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuv57"]
+size = Vector2(14, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mili8"]
+radius = 79.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0n2i0"]
+radius = 15.033297
+
+[node name="Mushroom" type="CharacterBody2D" unique_id=1642061844 groups=["Enemy"]]
+script = ExtResource("1_bjk5j")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=144488120]
+sprite_frames = SubResource("SpriteFrames_nde42")
+animation = &"Walk"
+
+[node name="Collision Shape" type="CollisionShape2D" parent="." unique_id=1154313609]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_fuv57")
+
+[node name="Detection" type="Area2D" parent="." unique_id=373255566]
+
+[node name="Area" type="CollisionShape2D" parent="Detection" unique_id=458339235]
+shape = SubResource("CircleShape2D_mili8")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1020912147]
+
+[node name="Area" type="CollisionShape2D" parent="Hitbox" unique_id=1261802220]
+shape = SubResource("CircleShape2D_0n2i0")
+
+[node name="RayCasts" type="Node2D" parent="." unique_id=2137846563]
+
+[node name="FallDetectionRight" type="RayCast2D" parent="RayCasts" unique_id=928841928]
+position = Vector2(20, 0)
+
+[node name="FallDetectionLeft" type="RayCast2D" parent="RayCasts" unique_id=592081322]
+position = Vector2(-20, 0)
+
+[node name="WallDetectionRight" type="RayCast2D" parent="RayCasts" unique_id=1057312234]
+target_position = Vector2(30, 0)
+
+[node name="WallDetectionLeft" type="RayCast2D" parent="RayCasts" unique_id=611131882]
+target_position = Vector2(-30, 0)
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

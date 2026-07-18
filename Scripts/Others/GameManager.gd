@@ -31,6 +31,14 @@ func addCoins(Amount):
 	Coins += Amount
 	ChangedCoins.emit(Coins)
 
+func ResetHealth():
+	CurrentHealth = MaxHealth
+	Health.emit(CurrentHealth)
+
 func RestartGame():
 	CurrentHealth = MaxHealth
 	Points = 0
+	Coins = 0 
+	Health.emit(CurrentHealth)
+	ChangedPoints.emit(Points)
+	ChangedCoins.emit(Coins)

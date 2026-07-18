@@ -105,6 +105,13 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_636u5")
 text = "Resume Game!"
 
+[node name="Restart" type="Button" parent="Pause Menu/Container" unique_id=1814484106]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_akgwn")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_636u5")
+text = "Restart Game!"
+
 [node name="Exit" type="Button" parent="Pause Menu/Container" unique_id=1435292865]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_akgwn")
@@ -115,4 +122,5 @@ text = "Exit the Game!"
 [connection signal="pressed" from="Panel/Container/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Panel/Container/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Pause Menu/Container/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause Menu/Container/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Pause Menu/Container/Exit" to="." method="_on_exit_pressed"]

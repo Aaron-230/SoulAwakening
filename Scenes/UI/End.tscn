@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://xqlg3yav1si0"]
+
+[ext_resource type="Script" uid="uid://chyoiddal7dhw" path="res://Scripts/Others/End.gd" id="1_7isid"]
+[ext_resource type="VideoStream" uid="uid://cxofpu2pug4aj" path="res://Assets/Videos/End.ogv" id="1_svh3u"]
+[ext_resource type="FontFile" uid="uid://cqt35ntcqnhvb" path="res://Assets/UI/Fonts/BoldPixels/boldpixels.ttf" id="2_7isid"]
+[ext_resource type="AudioStream" uid="uid://blvfvijnlcq2a" path="res://Assets/Music/End.mp3" id="3_vhrml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omsb3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="End" type="CanvasLayer" unique_id=894005827]
+script = ExtResource("1_7isid")
+
+[node name="Background" type="VideoStreamPlayer" parent="." unique_id=767028208]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_svh3u")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1555381287]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=540143758]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Container" unique_id=882843037]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7isid")
+theme_override_font_sizes/font_size = 64
+text = "You have finished the Game!"
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="Container" unique_id=1688250758]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7isid")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_omsb3")
+text = "Exit Game!"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1738406138]
+stream = ExtResource("3_vhrml")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]

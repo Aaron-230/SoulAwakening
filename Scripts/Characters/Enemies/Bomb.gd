@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var Speed: float = 200.0
 @export var JumpVelocity: float = 100.0
 @export var Damage: int = 100
-@export var PointsAwarded: int = 5000
+@export var PointsAwarded: int = 10000
 @export var CoolTime: float = 1.5
 
 @onready var Sprite: AnimatedSprite2D = $Sprite

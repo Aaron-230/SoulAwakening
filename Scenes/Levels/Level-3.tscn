@@ -9,7 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="4_kca5f"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="4_rubns"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="5_tqeg5"]
+[ext_resource type="PackedScene" uid="uid://dp2q5k4p2nqy6" path="res://Scenes/Others/Platform.tscn" id="6_7xox2"]
+[ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="6_14qmn"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="6_am62g"]
+[ext_resource type="PackedScene" uid="uid://kdujcybapckd" path="res://Scenes/Enemy/GreenSlime.tscn" id="8_r725w"]
+[ext_resource type="AudioStream" uid="uid://dx5atbbxlxaf8" path="res://Assets/Music/3.mp3" id="14_onj51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lu3uq"]
 texture = ExtResource("1_4xlpm")
@@ -160,6 +164,52 @@ rotation = 4.712389
 
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=1725910298]
 shape = SubResource("WorldBoundaryShape2D_kca5f")
+
+[node name="Labels" type="Node" parent="." unique_id=747048601]
+
+[node name="Label" type="Label" parent="Labels" unique_id=1766552848]
+offset_left = 1682.0
+offset_top = -339.0
+offset_right = 1952.0
+offset_bottom = -316.0
+theme_override_fonts/font = ExtResource("6_14qmn")
+theme_override_font_sizes/font_size = 24
+text = "It is his little cousin!"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=2125594068]
+offset_left = 2984.0
+offset_top = 62.0
+offset_right = 3254.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("6_14qmn")
+theme_override_font_sizes/font_size = 24
+text = "Go in the Cave!"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=646170741]
+offset_left = 6221.0
+offset_top = 50.0
+offset_right = 6491.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("6_14qmn")
+theme_override_font_sizes/font_size = 24
+text = "Go In Again!"
+
+[node name="Label5" type="Label" parent="Labels" unique_id=1169680811]
+offset_left = 7755.0
+offset_top = 63.0
+offset_right = 8025.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("6_14qmn")
+theme_override_font_sizes/font_size = 24
+text = "Just Climb!"
+
+[node name="Platform" type="Node" parent="." unique_id=359621172]
+
+[node name="Platform" parent="Platform" unique_id=2081489824 instance=ExtResource("6_7xox2")]
+position = Vector2(1823, 64)
+
+[node name="Platform2" parent="Platform" unique_id=1646102237 instance=ExtResource("6_7xox2")]
+position = Vector2(5401, 66)
 
 [node name="Coins" type="Node" parent="." unique_id=1511070779]
 
@@ -643,6 +693,39 @@ position = Vector2(1768, 8)
 [node name="Coin66" parent="Coins" unique_id=1048292844 instance=ExtResource("3_kca5f")]
 position = Vector2(1784, 8)
 
+[node name="Enemies" type="Node" parent="." unique_id=414268219]
+
+[node name="Slime" parent="Enemies" unique_id=1642061844 instance=ExtResource("8_r725w")]
+position = Vector2(1209, 49)
+PointsAwarded = 2000
+
+[node name="Slime2" parent="Enemies" unique_id=1959911201 instance=ExtResource("8_r725w")]
+position = Vector2(2141, -311)
+
+[node name="Slime3" parent="Enemies" unique_id=1459636111 instance=ExtResource("8_r725w")]
+position = Vector2(2819, -141)
+
+[node name="Slime4" parent="Enemies" unique_id=220346025 instance=ExtResource("8_r725w")]
+position = Vector2(2941, 114)
+
+[node name="Slime5" parent="Enemies" unique_id=442659584 instance=ExtResource("8_r725w")]
+position = Vector2(2578, 113)
+
+[node name="Slime6" parent="Enemies" unique_id=737293825 instance=ExtResource("8_r725w")]
+position = Vector2(1987, 113)
+
+[node name="Slime7" parent="Enemies" unique_id=1802596414 instance=ExtResource("8_r725w")]
+position = Vector2(4729, 108)
+
+[node name="Slime8" parent="Enemies" unique_id=1951383008 instance=ExtResource("8_r725w")]
+position = Vector2(5638, 111)
+
+[node name="Slime9" parent="Enemies" unique_id=850450288 instance=ExtResource("8_r725w")]
+position = Vector2(6246, 104)
+
+[node name="Slime10" parent="Enemies" unique_id=1633904673 instance=ExtResource("8_r725w")]
+position = Vector2(8724, -467)
+
 [node name="Finish" type="Area2D" parent="." unique_id=570400335]
 position = Vector2(9000, -500)
 script = ExtResource("3_uevwl")
@@ -658,5 +741,10 @@ Text = "Level 3: The Swampy Swamps"
 [node name="UI" parent="." unique_id=475028726 instance=ExtResource("6_am62g")]
 nextScene = "uid://ce66n5vh1rqxq"
 LevelName = "The Swampy Swamps"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1466377000]
+stream = ExtResource("14_onj51")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Finish" to="Finish" method="_on_body_entered"]

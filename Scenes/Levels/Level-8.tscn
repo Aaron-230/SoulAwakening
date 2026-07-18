@@ -4,10 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://chjyrhdbd7qqr" path="res://Assets/Tilesets/Castle/Decorations (32x32).png" id="2_vlgy5"]
 [ext_resource type="PackedScene" uid="uid://bsq6tlqydaxc7" path="res://Scenes/Characters/Spirit.tscn" id="3_vlgy5"]
 [ext_resource type="PackedScene" uid="uid://cqxgpi5ge8gw8" path="res://Scenes/Others/Platform-2.tscn" id="4_5r8ud"]
+[ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="4_pxn78"]
 [ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="4_qyoqk"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="6_217hd"]
+[ext_resource type="PackedScene" uid="uid://puym3g7oh4p0" path="res://Scenes/Enemy/KingPig.tscn" id="6_dpvg3"]
+[ext_resource type="PackedScene" uid="uid://b6ryo4lcjjuil" path="res://Scenes/Enemy/Pig.tscn" id="6_pak3k"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="7_pak3k"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="8_dpvg3"]
+[ext_resource type="AudioStream" uid="uid://6dv4ps0notlc" path="res://Assets/Music/8.mp3" id="9_217hd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5r8ud"]
 texture = ExtResource("1_00ojr")
@@ -214,6 +218,53 @@ layer_2/tile_data = PackedInt32Array(-4, 65537, 1, 65532, 65537, 2, 131068, 6553
 
 [node name="Camera" type="Camera2D" parent="Spirit" unique_id=408798401]
 zoom = Vector2(5, 5)
+
+[node name="Labels" type="Node" parent="." unique_id=1804900640]
+
+[node name="Label" type="Label" parent="Labels" unique_id=2147280348]
+offset_left = 461.0
+offset_top = 18.0
+offset_right = 719.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("4_pxn78")
+theme_override_font_sizes/font_size = 24
+text = "Lets Go! The Final Level!"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=631212194]
+offset_left = 2385.0
+offset_top = -951.0
+offset_right = 2643.0
+offset_bottom = -928.0
+theme_override_fonts/font = ExtResource("4_pxn78")
+theme_override_font_sizes/font_size = 24
+text = "What are the pigs made out of? Titanium?"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=298797703]
+offset_left = 4064.0
+offset_top = -1652.0
+offset_right = 4488.0
+offset_bottom = -1629.0
+theme_override_fonts/font = ExtResource("4_pxn78")
+theme_override_font_sizes/font_size = 24
+text = "How many Pigs are there?"
+
+[node name="Label4" type="Label" parent="Labels" unique_id=356967240]
+offset_left = 5990.0
+offset_top = 47.0
+offset_right = 6414.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("4_pxn78")
+theme_override_font_sizes/font_size = 24
+text = "Let me count. I guess there are 6-7 pigs in this area."
+
+[node name="Label5" type="Label" parent="Labels" unique_id=1371111441]
+offset_left = 6817.0
+offset_top = -3829.0
+offset_right = 7374.0
+offset_bottom = -3806.0
+theme_override_fonts/font = ExtResource("4_pxn78")
+theme_override_font_sizes/font_size = 24
+text = "Final Boss Pig! King Pig!"
 
 [node name="Coins" type="Node" parent="." unique_id=266247364]
 
@@ -487,10 +538,42 @@ position = Vector2(6723, 83)
 libraries/ = SubResource("AnimationLibrary_fnenh")
 autoplay = &"Move"
 
+[node name="Enemies" type="Node" parent="." unique_id=527543980]
+
+[node name="King Pig" parent="Enemies" unique_id=1642061844 instance=ExtResource("6_dpvg3")]
+position = Vector2(7339, -3787)
+
+[node name="Pig" parent="Enemies" unique_id=286857236 instance=ExtResource("6_pak3k")]
+position = Vector2(1342, 47)
+
+[node name="Pig2" parent="Enemies" unique_id=1868924270 instance=ExtResource("6_pak3k")]
+position = Vector2(1890, -902)
+
+[node name="Pig3" parent="Enemies" unique_id=215413865 instance=ExtResource("6_pak3k")]
+position = Vector2(3231, -904)
+
+[node name="Pig4" parent="Enemies" unique_id=598874973 instance=ExtResource("6_pak3k")]
+position = Vector2(3901, -1614)
+
+[node name="Pig5" parent="Enemies" unique_id=167246736 instance=ExtResource("6_pak3k")]
+position = Vector2(5257, -1630)
+
+[node name="Pig6" parent="Enemies" unique_id=1601598016 instance=ExtResource("6_pak3k")]
+position = Vector2(5876, 85)
+
+[node name="Pig7" parent="Enemies" unique_id=193145630 instance=ExtResource("6_pak3k")]
+position = Vector2(6397, 79)
+
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("6_217hd")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("7_pak3k")]
 Text = "Level 8: The Eternal Castle"
 
 [node name="UI" parent="." unique_id=475028726 instance=ExtResource("8_dpvg3")]
+nextScene = "uid://xqlg3yav1si0"
 LevelName = "The Eternal Castle"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1449376355]
+stream = ExtResource("9_217hd")
+volume_db = -10.0
+autoplay = true

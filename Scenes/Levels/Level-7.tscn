@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bvunqyniqimy1" path="res://Scenes/Platforms/Winter.tscn" id="5_bjj4q"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="5_xelbj"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="6_bjj4q"]
+[ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="7_iudcy"]
+[ext_resource type="PackedScene" uid="uid://bm6o0m1oldx7d" path="res://Scenes/Enemy/PurpleMushroom.tscn" id="10_x5gra"]
+[ext_resource type="AudioStream" uid="uid://6xk6ypqfd64n" path="res://Assets/Music/7.mp3" id="15_x5gra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ykmh"]
 texture = ExtResource("1_fklea")
@@ -229,6 +232,44 @@ rotation = 4.712389
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=750500996]
 shape = SubResource("WorldBoundaryShape2D_pjmyt")
 
+[node name="Labels" type="Node" parent="." unique_id=1964351857]
+
+[node name="Label" type="Label" parent="Labels" unique_id=765226045]
+offset_left = 641.0
+offset_top = -393.0
+offset_right = 853.0
+offset_bottom = -370.0
+theme_override_fonts/font = ExtResource("7_iudcy")
+theme_override_font_sizes/font_size = 24
+text = "Not Again!"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=1077759774]
+offset_left = 1301.0
+offset_top = -129.0
+offset_right = 1513.0
+offset_bottom = -106.0
+theme_override_fonts/font = ExtResource("7_iudcy")
+theme_override_font_sizes/font_size = 24
+text = "Its his stronger cousin!"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=1779594042]
+offset_left = 2076.0
+offset_top = -697.0
+offset_right = 2317.0
+offset_bottom = -674.0
+theme_override_fonts/font = ExtResource("7_iudcy")
+theme_override_font_sizes/font_size = 24
+text = "Lets get over with it!"
+
+[node name="Label4" type="Label" parent="Labels" unique_id=1501610682]
+offset_left = 2928.0
+offset_top = -405.0
+offset_right = 3169.0
+offset_bottom = -382.0
+theme_override_fonts/font = ExtResource("7_iudcy")
+theme_override_font_sizes/font_size = 24
+text = "Almost There!"
+
 [node name="Coins" type="Node" parent="." unique_id=2128878598]
 
 [node name="Coin" parent="Coins" unique_id=843631524 instance=ExtResource("4_bjj4q")]
@@ -369,9 +410,6 @@ position = Vector2(535, -57)
 [node name="Platform4" parent="Platform" unique_id=203761637 instance=ExtResource("5_bjj4q")]
 position = Vector2(451, -84)
 
-[node name="Platform5" parent="Platform" unique_id=322303032 instance=ExtResource("5_bjj4q")]
-position = Vector2(363, -117)
-
 [node name="Platform6" parent="Platform" unique_id=986114900 instance=ExtResource("5_bjj4q")]
 position = Vector2(453, -163)
 
@@ -390,6 +428,26 @@ position = Vector2(615, -287)
 [node name="Platform11" parent="Platform" unique_id=1297822213 instance=ExtResource("5_bjj4q")]
 position = Vector2(615, -287)
 
+[node name="Enemies" type="Node" parent="." unique_id=1189962236]
+
+[node name="Mushroom" parent="Enemies" unique_id=1642061844 instance=ExtResource("10_x5gra")]
+position = Vector2(804, -332)
+
+[node name="Mushroom2" parent="Enemies" unique_id=448204923 instance=ExtResource("10_x5gra")]
+position = Vector2(1188, -20)
+
+[node name="Mushroom3" parent="Enemies" unique_id=2140413298 instance=ExtResource("10_x5gra")]
+position = Vector2(1418, -89)
+
+[node name="Mushroom4" parent="Enemies" unique_id=2145180457 instance=ExtResource("10_x5gra")]
+position = Vector2(1820, -827)
+
+[node name="Mushroom5" parent="Enemies" unique_id=1340792547 instance=ExtResource("10_x5gra")]
+position = Vector2(2719, -501)
+
+[node name="Mushroom6" parent="Enemies" unique_id=624525815 instance=ExtResource("10_x5gra")]
+position = Vector2(3252, -193)
+
 [node name="Finish" type="Area2D" parent="." unique_id=886690971]
 position = Vector2(3450, -50)
 script = ExtResource("4_xelbj")
@@ -400,10 +458,15 @@ shape = SubResource("SegmentShape2D_bjj4q")
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("4_pjmyt")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("5_xelbj")]
-Text = "Level : The "
+Text = "Level 7: The Chilling Winter"
 
 [node name="UI" parent="." unique_id=475028726 instance=ExtResource("6_bjj4q")]
 nextScene = "uid://dy8qx5mlwbcfp"
-LevelName = "The "
+LevelName = "The Chilling Winter"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1822402578]
+stream = ExtResource("15_x5gra")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Finish" to="Finish" method="_on_body_entered"]

@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="6_o7d5v"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="7_8gota"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="8_hcaby"]
+[ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="10_nkii1"]
+[ext_resource type="PackedScene" uid="uid://cn3i7kbi6xhiq" path="res://Scenes/Enemy/BeachBall.tscn" id="13_lkamp"]
+[ext_resource type="AudioStream" uid="uid://dgq5ys34lbfbo" path="res://Assets/Music/4.mp3" id="18_lkamp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uka84"]
 texture = ExtResource("1_nxq7m")
@@ -292,6 +295,35 @@ rotation = 4.712389
 [node name="Shape" type="CollisionShape2D" parent="Border/End" unique_id=1363968681]
 shape = SubResource("WorldBoundaryShape2D_l5k2p")
 
+[node name="Labels" type="Node" parent="." unique_id=1705961989]
+
+[node name="Label" type="Label" parent="Labels" unique_id=1295662579]
+offset_left = 187.0
+offset_top = -28.0
+offset_right = 282.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("10_nkii1")
+theme_override_font_sizes/font_size = 24
+text = "Hey Look there is a Ball!"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=1126698711]
+offset_left = 583.0
+offset_top = -259.0
+offset_right = 844.0
+offset_bottom = -236.0
+theme_override_fonts/font = ExtResource("10_nkii1")
+theme_override_font_sizes/font_size = 24
+text = "They are bad! Understood!"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=533374874]
+offset_left = 1210.0
+offset_top = -31.0
+offset_right = 1471.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("10_nkii1")
+theme_override_font_sizes/font_size = 24
+text = "Parkour Time!"
+
 [node name="Coins" type="Node" parent="." unique_id=1979698750]
 
 [node name="Coin" parent="Coins" unique_id=843631524 instance=ExtResource("5_8gota")]
@@ -366,17 +398,22 @@ autoplay = &"Move"
 [node name="Platform2" parent="Platform" unique_id=27343089 instance=ExtResource("6_8gota")]
 position = Vector2(1579, -12)
 
-[node name="Platform3" parent="Platform" unique_id=621099929 instance=ExtResource("6_8gota")]
-position = Vector2(1514, -47)
-
 [node name="Platform4" parent="Platform" unique_id=2066958568 instance=ExtResource("6_8gota")]
 position = Vector2(1579, -82)
 
-[node name="Platform5" parent="Platform" unique_id=590060288 instance=ExtResource("6_8gota")]
-position = Vector2(1512, -112)
-
 [node name="Platform6" parent="Platform" unique_id=819762858 instance=ExtResource("6_8gota")]
 position = Vector2(1580, -152)
+
+[node name="Enemies" type="Node" parent="." unique_id=1677440352]
+
+[node name="Slime" parent="Enemies" unique_id=1642061844 instance=ExtResource("13_lkamp")]
+position = Vector2(598, -14)
+
+[node name="Slime2" parent="Enemies" unique_id=1692303679 instance=ExtResource("13_lkamp")]
+position = Vector2(986, -222)
+
+[node name="Slime3" parent="Enemies" unique_id=1943963969 instance=ExtResource("13_lkamp")]
+position = Vector2(1773, -199)
 
 [node name="Finish" type="Area2D" parent="." unique_id=1499014626]
 position = Vector2(2300, -50)
@@ -388,10 +425,15 @@ shape = SubResource("SegmentShape2D_8gota")
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("6_o7d5v")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("7_8gota")]
-Text = "Level 4: The "
+Text = "Level 4: The Not So Flat Planes"
 
 [node name="UI" parent="." unique_id=475028726 instance=ExtResource("8_hcaby")]
 nextScene = "uid://bb2wkuwt2p2cu"
-LevelName = "The "
+LevelName = "The Not So Flat Planes"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=913231911]
+stream = ExtResource("18_lkamp")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Finish" to="Finish" method="_on_body_entered"]

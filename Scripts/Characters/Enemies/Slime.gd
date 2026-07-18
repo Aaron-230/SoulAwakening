@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var WallDetectionRight: RayCast2D = $RayCasts/WallDetectionRight
 @onready var WallDetectionLeft: RayCast2D = $RayCasts/WallDetectionLeft
 
+var AttackTimer: float = 0.0
 var Attack = false
 var currentHP = HP
 var Target: Node2D = null
@@ -26,12 +27,14 @@ func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
+	if AttackTimer > 0.0:
+		AttackTimer -= delta
+	
 	if Target != null:
 		Sprite.play("Idle")
 		var Direction = (Target.global_position - global_position).normalized()
 		
-		if Attack:
-			await get_tree().create_timer(CoolTime).timeout
+		if Attack and AttackTimer <= 0.0:
 			performAttack()
 		
 		if Direction:
@@ -52,6 +55,7 @@ func performAttack():
 	velocity = Vector2.ZERO
 	Sprite.play("Idle")
 	Game.takeDamage(Damage)
+	AttackTimer = CoolTime
 
 func takeDamage(amount):
 	Sprite.play("Kill")
@@ -71,6 +75,7 @@ func _on_detection_body_exited(body: Node2D):
 
 func _on_hitbox_body_entered(body: Node2D):
 	if body.name == "Spirit":
+		AttackTimer = CoolTime
 		Attack = true
 
 func _on_hitbox_body_exited(body: Node2D):

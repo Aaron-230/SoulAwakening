@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dp2q5k4p2nqy6" path="res://Scenes/Others/Platform.tscn" id="4_d01u6"]
 [ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="4_ii8d5"]
 [ext_resource type="PackedScene" uid="uid://b4t0r7nkh4mr8" path="res://Scenes/Others/Coin.tscn" id="5_8r5np"]
-[ext_resource type="PackedScene" uid="uid://kdujcybapckd" path="res://Scenes/Enemy/Slime.tscn" id="6_1241g"]
 [ext_resource type="Script" uid="uid://b5v2u1o4sudpa" path="res://Scripts/Others/Finish.gd" id="6_t07gs"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="7_8r5np"]
+[ext_resource type="PackedScene" uid="uid://toe3gg54ubnk" path="res://Scenes/Enemy/PurpleSlime.tscn" id="7_ii8d5"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="7_t07gs"]
 [ext_resource type="PackedScene" uid="uid://b3c1arxggxfmi" path="res://Scenes/Others/GameHUD.tscn" id="9_lnb5r"]
+[ext_resource type="AudioStream" uid="uid://c55kn6xglv1qf" path="res://Assets/Music/1.mp3" id="12_ow41r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gigh"]
 texture = ExtResource("1_oripj")
@@ -415,35 +416,35 @@ position = Vector2(6520, -42)
 
 [node name="Enemies" type="Node" parent="." unique_id=206390338]
 
-[node name="Slime" parent="Enemies" unique_id=1642061844 instance=ExtResource("6_1241g")]
-position = Vector2(551, -45)
+[node name="Slime" parent="Enemies" unique_id=1642061844 instance=ExtResource("7_ii8d5")]
+position = Vector2(539, -51)
 
-[node name="Slime2" parent="Enemies" unique_id=2118756358 instance=ExtResource("6_1241g")]
-position = Vector2(930, -544)
+[node name="Slime2" parent="Enemies" unique_id=1427769430 instance=ExtResource("7_ii8d5")]
+position = Vector2(927, -548)
 
-[node name="Slime3" parent="Enemies" unique_id=727007417 instance=ExtResource("6_1241g")]
-position = Vector2(1860, -545)
+[node name="Slime3" parent="Enemies" unique_id=803498073 instance=ExtResource("7_ii8d5")]
+position = Vector2(1427, -560)
 
-[node name="Slime4" parent="Enemies" unique_id=170155286 instance=ExtResource("6_1241g")]
-position = Vector2(2727, -34)
+[node name="Slime4" parent="Enemies" unique_id=287653044 instance=ExtResource("7_ii8d5")]
+position = Vector2(2001, -567)
 
-[node name="Slime5" parent="Enemies" unique_id=1232425184 instance=ExtResource("6_1241g")]
-position = Vector2(3099, -40)
+[node name="Slime5" parent="Enemies" unique_id=1349038763 instance=ExtResource("7_ii8d5")]
+position = Vector2(2685, -34)
 
-[node name="Slime6" parent="Enemies" unique_id=2103833342 instance=ExtResource("6_1241g")]
-position = Vector2(3714, -155)
+[node name="Slime6" parent="Enemies" unique_id=2142314959 instance=ExtResource("7_ii8d5")]
+position = Vector2(3087, -42)
 
-[node name="Slime7" parent="Enemies" unique_id=1398923723 instance=ExtResource("6_1241g")]
-position = Vector2(4438, -51)
+[node name="Slime7" parent="Enemies" unique_id=1866214297 instance=ExtResource("7_ii8d5")]
+position = Vector2(3686, -166)
 
-[node name="Slime8" parent="Enemies" unique_id=1445802428 instance=ExtResource("6_1241g")]
-position = Vector2(5101, -831)
+[node name="Slime8" parent="Enemies" unique_id=1499387331 instance=ExtResource("7_ii8d5")]
+position = Vector2(4632, -36)
 
-[node name="Slime9" parent="Enemies" unique_id=283103917 instance=ExtResource("6_1241g")]
-position = Vector2(5498, -832)
+[node name="Slime9" parent="Enemies" unique_id=370974605 instance=ExtResource("7_ii8d5")]
+position = Vector2(5246, -833)
 
-[node name="Slime10" parent="Enemies" unique_id=686858099 instance=ExtResource("6_1241g")]
-position = Vector2(5999, -43)
+[node name="Slime10" parent="Enemies" unique_id=2057462006 instance=ExtResource("7_ii8d5")]
+position = Vector2(5775, -33)
 
 [node name="Finish" type="Area2D" parent="." unique_id=166249627]
 position = Vector2(7000, -60)
@@ -460,5 +461,10 @@ Text = "Level 1: The Dying Dungeons"
 [node name="UI" parent="." unique_id=475028726 instance=ExtResource("7_t07gs")]
 nextScene = "uid://cql8tpio1dekx"
 LevelName = "The Dying Dungeons"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1257046130]
+stream = ExtResource("12_ow41r")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Finish" to="Finish" method="_on_body_entered"]
