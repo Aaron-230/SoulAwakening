@@ -1,5 +1,3 @@
-﻿
-﻿
 # Soul Awakening
 
 Soul Awakening is a 2D, Pixelated, Platformer Game where the Main Character "The Spirit" is in a Coma and is playing levels in his mind in order to come out of it. In each level he is going deep and deep inside his memories and finally gets the courage to face his biggest fear "The King Pig" which defines the High and Authoriative Rule of the Higher-Ups in his Life. Feel Free to try out this game and leave your reviews!
