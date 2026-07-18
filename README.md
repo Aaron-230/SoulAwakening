@@ -15,7 +15,7 @@ In the next update, I will make improvements to the game and add Multiplayer fea
 
 This game is made using Godot and You can play this game in [Itch.io](https://itch.io/). You can find the playable link after the Demo Video (till Level - 1)
 
-![Demo Video](https://github.com/Aaron-230/SoulAwakening/blob/main/Demo.mp4)
+https://github.com/Aaron-230/SoulAwakening/blob/main/Demo.mp4
 
 [DEMO LINK!!!](https://lowspecdev.itch.io/soulawakening)
 
