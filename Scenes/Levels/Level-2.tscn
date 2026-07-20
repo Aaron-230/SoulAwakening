@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ctgdfkyhllwho" path="res://Scenes/Enemy/Bomb.tscn" id="9_yqxct"]
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="10_0rtsb"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="11_yqxct"]
+[ext_resource type="PackedScene" uid="uid://bxvuo4gk1rbl7" path="res://Scenes/UI/TouchControls.tscn" id="13_hicuo"]
 [ext_resource type="AudioStream" uid="uid://dtt66omxyrbos" path="res://Assets/Music/2.mp3" id="15_81abi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdrgj"]
@@ -363,6 +364,8 @@ script = ExtResource("8_wgrye")
 shape = SubResource("SegmentShape2D_vs31q")
 
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("9_8yefm")]
+
+[node name="TouchControls" parent="." unique_id=1919270182 instance=ExtResource("13_hicuo")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("10_0rtsb")]
 Text = "Level 2: The Outstanding Outside"

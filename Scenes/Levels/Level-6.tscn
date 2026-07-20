@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="9_br2qr"]
 [ext_resource type="PackedScene" uid="uid://tw0lkmnad8mf" path="res://Scenes/Enemy/OrangeMushroom.tscn" id="12_a1mle"]
 [ext_resource type="Texture2D" uid="uid://m5037ec4alv3" path="res://Assets/Tilesets/Seasonal Tilesets/2 - Autumn Forest/Background parts/6 - Distant_trees.png" id="15_4kd41"]
+[ext_resource type="PackedScene" uid="uid://bxvuo4gk1rbl7" path="res://Scenes/UI/TouchControls.tscn" id="15_5aghl"]
 [ext_resource type="Texture2D" uid="uid://op0dqx4poyvv" path="res://Assets/Tilesets/Seasonal Tilesets/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="16_3un1a"]
 [ext_resource type="Texture2D" uid="uid://bfjpckfscsmnu" path="res://Assets/Tilesets/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="17_6mo5f"]
 [ext_resource type="AudioStream" uid="uid://b84tncg2sxkfa" path="res://Assets/Music/6.mp3" id="17_a1mle"]
@@ -431,6 +432,8 @@ script = ExtResource("4_ko652")
 shape = SubResource("SegmentShape2D_4gqp2")
 
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("4_yiclr")]
+
+[node name="TouchControls" parent="." unique_id=1919270182 instance=ExtResource("15_5aghl")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("5_ko652")]
 Text = "Level 6: The Falling Fall"

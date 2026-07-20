@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dypcxh830o3a7" path="res://Scenes/UI/Intro.tscn" id="7_pak3k"]
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="8_dpvg3"]
 [ext_resource type="AudioStream" uid="uid://6dv4ps0notlc" path="res://Assets/Music/8.mp3" id="9_217hd"]
+[ext_resource type="PackedScene" uid="uid://bxvuo4gk1rbl7" path="res://Scenes/UI/TouchControls.tscn" id="10_sfa3u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5r8ud"]
 texture = ExtResource("1_00ojr")
@@ -565,6 +566,8 @@ position = Vector2(5876, 85)
 position = Vector2(6397, 79)
 
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("6_217hd")]
+
+[node name="TouchControls" parent="." unique_id=1919270182 instance=ExtResource("10_sfa3u")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("7_pak3k")]
 Text = "Level 8: The Eternal Castle"

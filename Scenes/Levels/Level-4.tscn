@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="8_hcaby"]
 [ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="10_nkii1"]
 [ext_resource type="PackedScene" uid="uid://cn3i7kbi6xhiq" path="res://Scenes/Enemy/BeachBall.tscn" id="13_lkamp"]
+[ext_resource type="PackedScene" uid="uid://bxvuo4gk1rbl7" path="res://Scenes/UI/TouchControls.tscn" id="16_fgo72"]
 [ext_resource type="AudioStream" uid="uid://dgq5ys34lbfbo" path="res://Assets/Music/4.mp3" id="18_lkamp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uka84"]
@@ -423,6 +424,8 @@ script = ExtResource("5_o7d5v")
 shape = SubResource("SegmentShape2D_8gota")
 
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("6_o7d5v")]
+
+[node name="TouchControls" parent="." unique_id=1919270182 instance=ExtResource("16_fgo72")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("7_8gota")]
 Text = "Level 4: The Not So Flat Planes"

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://nnirfj0arbj6" path="res://Scenes/UI/UI.tscn" id="6_06pgl"]
 [ext_resource type="FontFile" uid="uid://b568wykmji3de" path="res://Assets/UI/Fonts/BoldPixels/BoldPixels.otf" id="8_3dww3"]
 [ext_resource type="PackedScene" uid="uid://ch72ipvky6tdj" path="res://Scenes/Enemy/Cactus.tscn" id="9_0ml5q"]
+[ext_resource type="PackedScene" uid="uid://bxvuo4gk1rbl7" path="res://Scenes/UI/TouchControls.tscn" id="13_rvmfa"]
 [ext_resource type="AudioStream" uid="uid://deaxmglsq58pc" path="res://Assets/Music/5.mp3" id="15_0ml5q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xsjw"]
@@ -317,6 +318,8 @@ script = ExtResource("4_i2fap")
 shape = SubResource("SegmentShape2D_06pgl")
 
 [node name="GameHUD" parent="." unique_id=387286926 instance=ExtResource("4_jr64g")]
+
+[node name="TouchControls" parent="." unique_id=1919270182 instance=ExtResource("13_rvmfa")]
 
 [node name="Intro" parent="." unique_id=1206952914 instance=ExtResource("5_i2fap")]
 Text = "Level 5: The Deserting Desert"

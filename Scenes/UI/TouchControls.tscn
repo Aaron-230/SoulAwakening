@@ -69,6 +69,7 @@ position = Vector2(-130, -40)
 scale = Vector2(5, 5)
 texture_normal = SubResource("AtlasTexture_5kmlg")
 texture_pressed = SubResource("AtlasTexture_u2rtp")
+action = "Left"
 
 [node name="Action" type="HBoxContainer" parent="." unique_id=2059451743]
 anchors_preset = 2
